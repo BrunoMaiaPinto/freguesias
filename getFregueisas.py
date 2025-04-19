@@ -1,8 +1,13 @@
 import requests
-# from freguesiasList import freguesias
 
-res = requests.get('https://json.geoapi.pt/freguesias')
-freguesias = res.json()
+try:
+  res = requests.get('https://json.geoapi.pt/freguesias', timeout=10)
+  res.raise_for_status()
+  freguesias = res.json()
+except Exception as e:
+  print(f'{e}')
+  from freguesiasList import freguesias
+  
 
 with open("querie.txt", "w", encoding="utf-8") as f:
     f.write("INSERT INTO freguesias (freguesia) VALUES \n")
