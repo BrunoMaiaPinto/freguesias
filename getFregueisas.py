@@ -9,7 +9,7 @@ except Exception as e:
   from freguesiasList import freguesias
   
 
-with open("querie.txt", "w", encoding="utf-8") as f:
+with open("query.txt", "w", encoding="utf-8") as f:
     f.write("INSERT INTO freguesias (freguesia) VALUES \n")
 
     for i, freguesia in enumerate(freguesias):
